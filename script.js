@@ -74,12 +74,21 @@ const productos = [
     nota: null,
   },
   {
+    id: 10,
+    nombre: "Portavaso en Corazón",
+    imagen: "images/portavaso en corazon.jpg",
+    material: "Piola de algodón de 3mm",
+    color: "Crudo",
+    precio: 12000,
+    nota: null,
+  },
+  {
     id: 9,
     nombre: "Llaveros Aruna",
     imagen: "images/Llaveros Aruna.jpg",
     material: "Algodón de 3mm",
     color: "Crudo (próximamente más colores)",
-    precio: 10000,
+    precio: 12000,
     nota: "Solo disponible en color blanco por el momento. Próximamente variedad de colores.",
   },
 ];
@@ -110,16 +119,24 @@ function crearTarjetaProducto(producto) {
           <i data-lucide="tag"></i>
           <span>${producto.material}</span>
         </div>
-        ${producto.medidas ? `
+        ${
+          producto.medidas
+            ? `
         <div class="producto-detalle">
           <i data-lucide="ruler"></i>
           <span>${producto.medidas}</span>
-        </div>` : ""}
-        ${producto.color ? `
+        </div>`
+            : ""
+        }
+        ${
+          producto.color
+            ? `
         <div class="producto-detalle">
           <i data-lucide="palette"></i>
           <span>${producto.color}</span>
-        </div>` : ""}
+        </div>`
+            : ""
+        }
       </div>
       ${producto.nota ? `<p class="producto-nota">${producto.nota}</p>` : ""}
       <a class="producto-cta" href="${url}" target="_blank" rel="noopener">Pedir por WhatsApp</a>
