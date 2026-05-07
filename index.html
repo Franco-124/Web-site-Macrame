@@ -29,6 +29,16 @@
     </header>
 
     <section id="hero" class="hero">
+      <picture class="hero-img-wrapper">
+        <source media="(max-width: 768px)" srcset="images/hero_mobile.jpg" />
+        <img
+          class="hero-img"
+          src="images/hero_pc.jpg"
+          alt=""
+          aria-hidden="true"
+          fetchpriority="high"
+        />
+      </picture>
       <div class="hero-content">
         <span class="hero-eyebrow">Arte en Macramé</span>
         <h1 class="hero-title">Pauli<br>Encanto</h1>
