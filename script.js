@@ -177,8 +177,8 @@ function crearTarjetaProducto(producto) {
   const wrapper = tarjeta.querySelector(".carrusel");
   if (wrapper) {
     const slides = wrapper.querySelectorAll(".carrusel-slide");
-    const dots = wrapper.querySelectorAll(".carrusel-dot");
-    let current = 0;
+    const dots   = wrapper.querySelectorAll(".carrusel-dot");
+    let current  = 0;
 
     const ir = (index) => {
       slides[current].classList.remove("activa");
@@ -203,14 +203,15 @@ function crearTarjetaProducto(producto) {
       }),
     );
 
-    // Abrir lightbox con la imagen activa
-    wrapper.addEventListener("click", (e) => {
-      if (e.target.classList.contains("carrusel-slide")) {
-        e.target.dispatchEvent(
-          new MouseEvent("click", { bubbles: true, cancelable: true }),
-        );
-      }
-    });
+    // Swipe táctil
+    let touchStartX = 0;
+    wrapper.addEventListener("touchstart", (e) => {
+      touchStartX = e.touches[0].clientX;
+    }, { passive: true });
+    wrapper.addEventListener("touchend", (e) => {
+      const diff = touchStartX - e.changedTouches[0].clientX;
+      if (Math.abs(diff) > 40) ir(diff > 0 ? current + 1 : current - 1);
+    }, { passive: true });
   }
 
   return tarjeta;

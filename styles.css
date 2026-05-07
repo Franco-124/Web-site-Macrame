@@ -411,6 +411,8 @@ a   { color: inherit; text-decoration: none; }
 }
 
 /* === CARRUSEL === */
+
+/* Todas las slides son absolutas; el wrapper (aspect-ratio) da la altura */
 .carrusel-slide {
   position: absolute;
   inset: 0;
@@ -418,72 +420,87 @@ a   { color: inherit; text-decoration: none; }
   height: 100%;
   object-fit: cover;
   opacity: 0;
-  transition: opacity 0.45s var(--ease);
+  transition: opacity 0.5s var(--ease);
   cursor: zoom-in;
+  pointer-events: none;
 }
 
 .carrusel-slide.activa {
   opacity: 1;
-  position: relative; /* la activa ocupa el espacio */
+  pointer-events: auto;
 }
 
+/* Flechas */
 .carrusel-btn {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  z-index: 3;
-  background: rgba(250, 246, 240, 0.88);
-  border: none;
+  z-index: 4;
+  background: rgba(42, 31, 16, 0.52);
+  backdrop-filter: blur(4px);
+  border: 1px solid rgba(255, 255, 255, 0.25);
   border-radius: 50%;
-  width: 34px;
-  height: 34px;
-  font-size: 22px;
+  width: 38px;
+  height: 38px;
+  font-size: 24px;
   line-height: 1;
   cursor: pointer;
-  color: var(--color-dark);
+  color: #fff;
   display: grid;
   place-items: center;
-  opacity: 0;
-  transition: opacity var(--transition), background var(--transition), transform var(--transition);
-  box-shadow: var(--shadow-sm);
+  transition: background var(--transition), transform var(--transition), opacity var(--transition);
+  box-shadow: 0 2px 12px rgba(0,0,0,0.25);
+  /* Siempre visibles pero discretos */
+  opacity: 0.75;
 }
 
 .carrusel-prev { left: 10px; }
 .carrusel-next { right: 10px; }
 
-.producto-card:hover .carrusel-btn {
-  opacity: 1;
-}
-
 .carrusel-btn:hover {
-  background: var(--color-bg-card);
+  background: rgba(42, 31, 16, 0.82);
+  opacity: 1;
   transform: translateY(-50%) scale(1.08);
 }
 
+/* En desktop, ocultar hasta hover para no saturar cards sin carrusel */
+@media (hover: hover) {
+  .carrusel-btn { opacity: 0; }
+  .producto-card:hover .carrusel-btn { opacity: 0.85; }
+  .producto-card:hover .carrusel-btn:hover { opacity: 1; }
+}
+
+/* Dots */
 .carrusel-dots {
   position: absolute;
-  bottom: 46px; /* encima del badge */
+  bottom: 48px;
   left: 50%;
   transform: translateX(-50%);
   display: flex;
-  gap: 6px;
-  z-index: 3;
+  gap: 7px;
+  z-index: 4;
+  padding: 5px 10px;
+  background: rgba(20, 12, 4, 0.35);
+  border-radius: var(--radius-pill);
+  backdrop-filter: blur(4px);
 }
 
 .carrusel-dot {
-  width: 7px;
-  height: 7px;
+  width: 8px;
+  height: 8px;
   border-radius: 50%;
   border: none;
-  background: rgba(255, 255, 255, 0.55);
+  background: rgba(255, 255, 255, 0.45);
   cursor: pointer;
   padding: 0;
-  transition: background var(--transition), transform var(--transition);
+  transition: background var(--transition), width var(--transition), border-radius var(--transition);
+  flex-shrink: 0;
 }
 
 .carrusel-dot.activo {
   background: #fff;
-  transform: scale(1.25);
+  width: 20px;
+  border-radius: 4px;
 }
 
 /* Price badge floating on image */
