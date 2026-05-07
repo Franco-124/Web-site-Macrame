@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pauli Encanto — Arte en Macramé</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400;1,600&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Lato:wght@300;400&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <header id="navbar" class="navbar">
+      <div class="nav-inner">
+        <a class="logo" href="#hero">Pauli Encanto</a>
+        <a
+          class="btn-whatsapp"
+          href="https://wa.me/573126068990"
+          target="_blank"
+          rel="noopener"
+        >
+          <i data-lucide="message-circle"></i>
+          WhatsApp
+        </a>
+      </div>
+    </header>
+
+    <section id="hero" class="hero">
+      <div class="hero-content">
+        <span class="hero-eyebrow">Arte en Macramé</span>
+        <h1 class="hero-title">Pauli<br>Encanto</h1>
+        <p class="hero-subtitle">Piezas tejidas a mano con algodón noble,<br>para llenar de calma cada rincón.</p>
+        <div class="hero-actions">
+          <a class="hero-cta" href="#catalogo">Ver Catálogo</a>
+          <a class="hero-cta-ghost" href="https://wa.me/573126068990" target="_blank" rel="noopener">Escríbenos</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="nosotros" class="nosotros">
+      <div class="section-header reveal">
+        <span class="section-label">Quiénes somos</span>
+        <h2>Hecho con intención</h2>
+        <span class="section-rule"></span>
+      </div>
+      <div class="pilares">
+        <article class="pilar reveal" data-delay="0">
+          <div class="pilar-icon">
+            <i data-lucide="leaf"></i>
+          </div>
+          <h3>Materiales nobles</h3>
+          <p>
+            Trabajamos con algodón y texturas suaves que respetan el entorno y
+            elevan cada espacio.
+          </p>
+        </article>
+        <article class="pilar reveal" data-delay="1">
+          <div class="pilar-icon">
+            <i data-lucide="heart"></i>
+          </div>
+          <h3>Hecho con amor</h3>
+          <p>
+            Cada pieza se teje a mano con cuidado, dedicación y una intención de
+            calma.
+          </p>
+        </article>
+        <article class="pilar reveal" data-delay="2">
+          <div class="pilar-icon">
+            <i data-lucide="scissors"></i>
+          </div>
+          <h3>Detalles a medida</h3>
+          <p>
+            Diseños personalizables para armonizar con tu hogar, tu estilo y tu
+            energía.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <section id="catalogo" class="catalogo">
+      <div class="section-header reveal">
+        <span class="section-label">Nuestras piezas</span>
+        <h2>Catálogo</h2>
+        <span class="section-rule"></span>
+      </div>
+      <div id="grid-productos" class="grid-productos"></div>
+    </section>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <h3>Pauli Encanto</h3>
+          <p>
+            Arte en macramé creado con pasión para llenar de armonía y calidez
+            cada rincón de tu hogar.
+          </p>
+        </div>
+        <div class="footer-contacto">
+          <h4>Contacto</h4>
+          <p>Teléfono: 312 606 8990</p>
+          <a href="https://wa.me/573126068990" target="_blank" rel="noopener">
+            <i data-lucide="message-circle"></i>
+            Escríbenos por WhatsApp
+          </a>
+        </div>
+      </div>
+      <p class="footer-copy">© 2025 Pauli Encanto — Arte en Macramé</p>
+    </footer>
+
+    <div id="lightbox" class="lightbox" aria-hidden="true">
+      <button class="lightbox-close" aria-label="Cerrar imagen">✕</button>
+      <img src="" alt="Vista ampliada del producto" />
+    </div>
+  </body>
+</html>
