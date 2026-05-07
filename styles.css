@@ -410,6 +410,82 @@ a   { color: inherit; text-decoration: none; }
   opacity: 1;
 }
 
+/* === CARRUSEL === */
+.carrusel-slide {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 0.45s var(--ease);
+  cursor: zoom-in;
+}
+
+.carrusel-slide.activa {
+  opacity: 1;
+  position: relative; /* la activa ocupa el espacio */
+}
+
+.carrusel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 3;
+  background: rgba(250, 246, 240, 0.88);
+  border: none;
+  border-radius: 50%;
+  width: 34px;
+  height: 34px;
+  font-size: 22px;
+  line-height: 1;
+  cursor: pointer;
+  color: var(--color-dark);
+  display: grid;
+  place-items: center;
+  opacity: 0;
+  transition: opacity var(--transition), background var(--transition), transform var(--transition);
+  box-shadow: var(--shadow-sm);
+}
+
+.carrusel-prev { left: 10px; }
+.carrusel-next { right: 10px; }
+
+.producto-card:hover .carrusel-btn {
+  opacity: 1;
+}
+
+.carrusel-btn:hover {
+  background: var(--color-bg-card);
+  transform: translateY(-50%) scale(1.08);
+}
+
+.carrusel-dots {
+  position: absolute;
+  bottom: 46px; /* encima del badge */
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 6px;
+  z-index: 3;
+}
+
+.carrusel-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(255, 255, 255, 0.55);
+  cursor: pointer;
+  padding: 0;
+  transition: background var(--transition), transform var(--transition);
+}
+
+.carrusel-dot.activo {
+  background: #fff;
+  transform: scale(1.25);
+}
+
 /* Price badge floating on image */
 .producto-badge {
   position: absolute;

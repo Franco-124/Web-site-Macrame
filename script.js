@@ -76,9 +76,12 @@ const productos = [
   {
     id: 10,
     nombre: "Portavaso en Corazón",
-    imagen: "images/portavaso en corazon.jpg",
+    imagenes: [
+      "images/portavaso en corazon.jpg",
+      "images/portavaso corazon cafe mosca.jpg",
+    ],
     material: "Piola de algodón de 3mm",
-    color: "Crudo",
+    color: "Crudo y café mosca",
     precio: 12000,
     nota: null,
   },
@@ -93,6 +96,43 @@ const productos = [
   },
 ];
 
+function crearCarrusel(imagenes, nombre, precioTexto) {
+  const badge = `<div class="producto-badge">${precioTexto}</div>`;
+
+  if (imagenes.length === 1) {
+    return `
+      <div class="producto-imagen-wrapper">
+        <img class="producto-imagen" src="${imagenes[0]}" alt="${nombre}" loading="lazy" />
+        <div class="producto-imagen-overlay"><span>Ver foto</span></div>
+        ${badge}
+      </div>`;
+  }
+
+  const slides = imagenes
+    .map(
+      (src, i) =>
+        `<img class="producto-imagen carrusel-slide${i === 0 ? " activa" : ""}" src="${src}" alt="${nombre} — foto ${i + 1}" loading="lazy" data-index="${i}" />`,
+    )
+    .join("");
+
+  const dots = imagenes
+    .map(
+      (_, i) =>
+        `<button class="carrusel-dot${i === 0 ? " activo" : ""}" aria-label="Foto ${i + 1}" data-index="${i}"></button>`,
+    )
+    .join("");
+
+  return `
+    <div class="producto-imagen-wrapper carrusel">
+      ${slides}
+      <button class="carrusel-btn carrusel-prev" aria-label="Foto anterior">&#8249;</button>
+      <button class="carrusel-btn carrusel-next" aria-label="Foto siguiente">&#8250;</button>
+      <div class="carrusel-dots">${dots}</div>
+      <div class="producto-imagen-overlay"><span>Ver foto</span></div>
+      ${badge}
+    </div>`;
+}
+
 function crearTarjetaProducto(producto) {
   const tarjeta = document.createElement("article");
   tarjeta.className = "producto-card reveal";
@@ -106,12 +146,10 @@ function crearTarjetaProducto(producto) {
       ? "Consultar"
       : `$${producto.precio.toLocaleString("es-CO")}`;
 
+  const imagenes = producto.imagenes ?? [producto.imagen];
+
   tarjeta.innerHTML = `
-    <div class="producto-imagen-wrapper">
-      <img class="producto-imagen" src="${producto.imagen}" alt="${producto.nombre}" loading="lazy" />
-      <div class="producto-imagen-overlay"><span>Ver foto</span></div>
-      <div class="producto-badge">${precioTexto}</div>
-    </div>
+    ${crearCarrusel(imagenes, producto.nombre, precioTexto)}
     <div class="producto-contenido">
       <h3 class="producto-nombre">${producto.nombre}</h3>
       <div class="producto-detalles">
@@ -119,29 +157,61 @@ function crearTarjetaProducto(producto) {
           <i data-lucide="tag"></i>
           <span>${producto.material}</span>
         </div>
-        ${
-          producto.medidas
-            ? `
+        ${producto.medidas ? `
         <div class="producto-detalle">
           <i data-lucide="ruler"></i>
           <span>${producto.medidas}</span>
-        </div>`
-            : ""
-        }
-        ${
-          producto.color
-            ? `
+        </div>` : ""}
+        ${producto.color ? `
         <div class="producto-detalle">
           <i data-lucide="palette"></i>
           <span>${producto.color}</span>
-        </div>`
-            : ""
-        }
+        </div>` : ""}
       </div>
       ${producto.nota ? `<p class="producto-nota">${producto.nota}</p>` : ""}
       <a class="producto-cta" href="${url}" target="_blank" rel="noopener">Pedir por WhatsApp</a>
     </div>
   `;
+
+  // Lógica del carrusel
+  const wrapper = tarjeta.querySelector(".carrusel");
+  if (wrapper) {
+    const slides = wrapper.querySelectorAll(".carrusel-slide");
+    const dots = wrapper.querySelectorAll(".carrusel-dot");
+    let current = 0;
+
+    const ir = (index) => {
+      slides[current].classList.remove("activa");
+      dots[current].classList.remove("activo");
+      current = (index + slides.length) % slides.length;
+      slides[current].classList.add("activa");
+      dots[current].classList.add("activo");
+    };
+
+    wrapper.querySelector(".carrusel-prev").addEventListener("click", (e) => {
+      e.stopPropagation();
+      ir(current - 1);
+    });
+    wrapper.querySelector(".carrusel-next").addEventListener("click", (e) => {
+      e.stopPropagation();
+      ir(current + 1);
+    });
+    dots.forEach((dot) =>
+      dot.addEventListener("click", (e) => {
+        e.stopPropagation();
+        ir(Number(dot.dataset.index));
+      }),
+    );
+
+    // Abrir lightbox con la imagen activa
+    wrapper.addEventListener("click", (e) => {
+      if (e.target.classList.contains("carrusel-slide")) {
+        e.target.dispatchEvent(
+          new MouseEvent("click", { bubbles: true, cancelable: true }),
+        );
+      }
+    });
+  }
 
   return tarjeta;
 }
