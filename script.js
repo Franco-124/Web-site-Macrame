@@ -1,10 +1,11 @@
 const productos = [
   {
     id: 1,
-    nombre: "Portavela o Portavaso en Macramé",
-    imagen: "images/Portavela o portavaso en macramé.jpg",
+    nombre: "Portavela o Portavaso Alma",
+    imagen: "images/Portavasoalma.jpg",
     material: "Piola de algodón de 3mm",
     color: "Crudo",
+    medidas: "14 cm de largo x10 cm de ancho",
     precio: 12000,
     nota: null,
   },
@@ -157,16 +158,24 @@ function crearTarjetaProducto(producto) {
           <i data-lucide="tag"></i>
           <span>${producto.material}</span>
         </div>
-        ${producto.medidas ? `
+        ${
+          producto.medidas
+            ? `
         <div class="producto-detalle">
           <i data-lucide="ruler"></i>
           <span>${producto.medidas}</span>
-        </div>` : ""}
-        ${producto.color ? `
+        </div>`
+            : ""
+        }
+        ${
+          producto.color
+            ? `
         <div class="producto-detalle">
           <i data-lucide="palette"></i>
           <span>${producto.color}</span>
-        </div>` : ""}
+        </div>`
+            : ""
+        }
       </div>
       ${producto.nota ? `<p class="producto-nota">${producto.nota}</p>` : ""}
       <a class="producto-cta" href="${url}" target="_blank" rel="noopener">Pedir por WhatsApp</a>
@@ -177,8 +186,8 @@ function crearTarjetaProducto(producto) {
   const wrapper = tarjeta.querySelector(".carrusel");
   if (wrapper) {
     const slides = wrapper.querySelectorAll(".carrusel-slide");
-    const dots   = wrapper.querySelectorAll(".carrusel-dot");
-    let current  = 0;
+    const dots = wrapper.querySelectorAll(".carrusel-dot");
+    let current = 0;
 
     const ir = (index) => {
       slides[current].classList.remove("activa");
@@ -205,13 +214,21 @@ function crearTarjetaProducto(producto) {
 
     // Swipe táctil
     let touchStartX = 0;
-    wrapper.addEventListener("touchstart", (e) => {
-      touchStartX = e.touches[0].clientX;
-    }, { passive: true });
-    wrapper.addEventListener("touchend", (e) => {
-      const diff = touchStartX - e.changedTouches[0].clientX;
-      if (Math.abs(diff) > 40) ir(diff > 0 ? current + 1 : current - 1);
-    }, { passive: true });
+    wrapper.addEventListener(
+      "touchstart",
+      (e) => {
+        touchStartX = e.touches[0].clientX;
+      },
+      { passive: true },
+    );
+    wrapper.addEventListener(
+      "touchend",
+      (e) => {
+        const diff = touchStartX - e.changedTouches[0].clientX;
+        if (Math.abs(diff) > 40) ir(diff > 0 ? current + 1 : current - 1);
+      },
+      { passive: true },
+    );
   }
 
   return tarjeta;
