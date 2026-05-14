@@ -95,6 +95,15 @@ const productos = [
     precio: 12000,
     nota: "Solo disponible en color blanco por el momento. Próximamente variedad de colores.",
   },
+  {
+    id: 10,
+    nombre: "Tapiz trenzas de paz ",
+    imagenes: ["images/trenzasdepazv1.jpg", "images/trenzasdepazv2.jpg"],
+    medidas: "28 cm x18cm aproximadamente",
+    material: "Algodón de 3mm",
+    color: "Crudo (próximamente más colores)",
+    precio: 20000,
+  },
 ];
 
 function crearCarrusel(imagenes, nombre, precioTexto) {
