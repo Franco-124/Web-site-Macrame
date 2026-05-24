@@ -19,6 +19,20 @@ const productos = [
     nota: "El precio puede variar si deseas más largo o con accesorios en madera",
   },
   {
+    id: 11,
+    nombre: "Repisa en macramé",
+    imagenes: [
+      "images/repisamacrame1.jpg",
+      "images/repisaenmacrameejemplouso.jpg",
+    ],
+    material:
+      "Piola de algodón de 3mm + Palo de madera + Tabla de madera(40cm x 20cm x 2cm)",
+    color: "Crudo con detalles en café",
+    medidas: "45cm x40cm",
+    precio: 90000,
+    nota: null,
+  },
+  {
     id: 3,
     nombre: "Portamacetas Aura",
     imagen: "images/Portamacetas aura.jpg",
