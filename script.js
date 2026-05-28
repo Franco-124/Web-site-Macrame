@@ -103,10 +103,10 @@ const productos = [
   {
     id: 9,
     nombre: "Llaveros Aruna",
-    imagen: "images/Llaveros Aruna.jpg",
+    imagen: "images/fotollaverosv2.jpg",
     material: "Algodón de 3mm",
     color: "Crudo (próximamente más colores)",
-    precio: 12000,
+    precio: 10000,
     nota: "Solo disponible en color blanco por el momento. Próximamente variedad de colores.",
   },
   {
