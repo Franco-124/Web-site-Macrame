@@ -2,7 +2,11 @@ const productos = [
   {
     id: 1,
     nombre: "Portavela o Portavaso Alma",
-    imagen: "images/Portavasoalma.jpg",
+    imagenes: [
+      "images/Portavaso1.jpg",
+      "images/Portavaso2.jpg",
+      "images/Portavaso3.jpg",
+    ],
     material: "Piola de algodón de 3mm",
     color: "Crudo",
     medidas: "14 cm de largo x10 cm de ancho",
@@ -89,21 +93,17 @@ const productos = [
     nota: null,
   },
   {
-    id: 10,
-    nombre: "Portavaso en Corazón",
-    imagenes: [
-      "images/portavaso en corazon.jpg",
-      "images/portavaso corazon cafe mosca.jpg",
-    ],
-    material: "Piola de algodón de 3mm",
-    color: "Crudo y café mosca",
-    precio: 12000,
-    nota: null,
-  },
-  {
     id: 9,
     nombre: "Llaveros Aruna",
-    imagen: "images/fotollaverosv2.jpg",
+    imagenes: [
+      "images/fotollaverosv2.jpg",
+      "images/llaveros2.jpg",
+      "images/llaveros3.jpg",
+      "images/llaveros4.jpg",
+      "images/llaveros5.jpg",
+      "images/llaveros6.jpg",
+      "images/llaveros7.jpg",
+    ],
     material: "Algodón de 3mm",
     color: "Crudo (próximamente más colores)",
     precio: 10000,
@@ -112,11 +112,43 @@ const productos = [
   {
     id: 10,
     nombre: "Tapiz trenzas de paz ",
-    imagenes: ["images/trenzasdepazv1.jpg", "images/trenzasdepazv2.jpg"],
+    imagenes: [
+      "images/trenzasdepazv2.jpg",
+      "images/trenzasdepazv1.jpg",
+      "images/individuales2.jpg",
+      "images/individuales3.jpg",
+    ],
     medidas: "28 cm x18cm aproximadamente",
     material: "Algodón de 3mm",
     color: "Crudo (próximamente más colores)",
     precio: 20000,
+  },
+  {
+    id: 11,
+    nombre: "Árbol de la vida",
+    imagenes: [
+      "images/arbolvida1.jpg",
+      "images/arbolvida2.jpg",
+      "images/arbolvida3.jpg",
+    ],
+    medidas: "lo puedes personalizar a tu gusto",
+    material: "Algodón de 3mm",
+    color: "Color a elección",
+    precio: 45000,
+  },
+  {
+    id: 12,
+    nombre: "Cortinero con plumas",
+    imagenes: [
+      "images/cortinero1.jpg",
+      "images/cortinero2.jpg",
+      "images/cortinero3.jpg",
+    ],
+    medidas: "lo puedes personalizar a tu gusto",
+    material: "Algodón de 3mm",
+    color: "Color a elección",
+    precio: 20000,
+    nota: "Precio por unidad. El par vale $35.000",
   },
 ];
 
