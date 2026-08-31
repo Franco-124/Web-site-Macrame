@@ -1,5 +1,15 @@
 const productos = [
   {
+    id: 13,
+    nombre: "Recordatorios",
+    imagen: "images/recordatorios.jpg",
+    medidas: "lo puedes personalizar a tu gusto",
+    material: "Algodón de 3mm",
+    color: "Color a elección",
+    precio: null,
+    nota: "Precio varia segun diseño, color y cantidad",
+  },
+  {
     id: 1,
     nombre: "Portavela o Portavaso Alma",
     imagenes: [
@@ -65,6 +75,22 @@ const productos = [
     nota: null,
   },
   {
+    id: 15,
+    nombre: "Llaveros femeninos",
+    imagenes: [
+      "images/llaveros1.jpg",
+      "images/llaveros_2.jpg",
+      "images/llaveros_3.jpg",
+      "images/llaveros_4.jpg",
+      "images/llaveros_5.jpg",
+      "images/llaveros_6.jpg",
+    ],
+    medidas: null,
+    material: "Algodón de 3mm",
+    color: "Colores variados",
+    precio: 10000,
+  },
+  {
     id: 6,
     nombre: "Portamacetas Esencia del Alma",
     imagen: "images/Portamacetas esencia del alma.jpg",
@@ -91,23 +117,6 @@ const productos = [
     medidas: "70cm",
     precio: 20000,
     nota: null,
-  },
-  {
-    id: 9,
-    nombre: "Llaveros Aruna",
-    imagenes: [
-      "images/fotollaverosv2.jpg",
-      "images/llaveros2.jpg",
-      "images/llaveros3.jpg",
-      "images/llaveros4.jpg",
-      "images/llaveros5.jpg",
-      "images/llaveros6.jpg",
-      "images/llaveros7.jpg",
-    ],
-    material: "Algodón de 3mm",
-    color: "Crudo (próximamente más colores)",
-    precio: 10000,
-    nota: "Solo disponible en color blanco por el momento. Próximamente variedad de colores.",
   },
   {
     id: 10,
