@@ -88,7 +88,22 @@ const productos = [
     medidas: null,
     material: "Algodón de 3mm",
     color: "Colores variados",
-    precio: 10000,
+    precio: 15000,
+    nota: "Personalizados con el nombre que quieras",
+  },
+  {
+    id: 16,
+    nombre: "Llaveros masculinos",
+    imagenes: [
+      "images/llaveros_m_1.jpg",
+      "images/llaveros_m2.jpg",
+      "images/llaveros_m3.jpg",
+    ],
+    medidas: null,
+    material: "Algodón de 3mm",
+    color: "Colores variados",
+    precio: 13000,
+    nota: "Personalizados con el nombre que quieras",
   },
   {
     id: 6,
